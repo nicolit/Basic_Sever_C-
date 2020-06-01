@@ -1,0 +1,76 @@
+nicol
+Nicole Sadagurski (312014376)
+EX: 5
+
+
+
+
+FILES:
+
+Client.cpp
+Client.h
+CommandParser.cpp
+CommandParser.h
+emClient.cpp
+emServer.cpp
+Event.cpp
+Event.h
+Logger.cpp
+Logger.h
+Makefile
+README - this file
+Server.cpp
+Server.h
+
+REMARKS:
+This ex was hard and fun.
+
+
+ANSWERS:
+
+Question 1: 
+You are required to add one more command: 
+'Create and Distribute' – after creating a new event, the server is required 
+to distribute the event to all registered clients.
+a. Which changes are required in the client side in order to support the 
+new command?
+# I will make a User class which will have data members which hold the 
+events that this user created and all the events the user has been RSVP to.
+So I could "broadcast" all other users so that they will receive invitation
+to the new created event.
+b. Which changes are required in the server side in order to support the 
+new command?
+# I will need to allow the server to remember the users operations and store
+a map of all the Users instances which server will create for each new user
+that registers. This will allow the serve to send all the users invitation via
+the user's details like their current port and IP address while being connected.
+
+
+Question 2:
+Why do we prefer TCP over UDP in this exercise?
+# TCP connection is safer connection type and it allows us to receive feedback
+from the server - a response over the same connected socket, while UDP does not
+allow this and the client cannot know for sure that all the transfered data 
+that was sent to the server did actually arrive fully or that the server 
+response did fully received back or lost partly on the way. The TCP connection
+allows safe and fluent and reliable communication between client and server.
+
+Question 3:
+Give two examples for applications that use UDP. Why UDP is preferred for them?
+# Web - using web sites because most web sites are interactive with the user. 
+SMTP, sending mail: sending mail, receiving mail - because TCP guarantees 
+(in-order) packet delivery - meaning that the mail was indeed delivered fully.
+
+Question 4:
+In this exercise, in case of a server crash all the data is lost (we say that 
+the server is a single point of failure). Describe high level design for a 
+system that is able to recover from failures (we allow some of the data 
+to be lost).
+# I would use a wrapper for the server connection so the server will be static
+and singleton as I did in this exercise, in addition I will manage the state
+of the server and monitor it so in case the server crashes, it could be 
+restarted back again with new port but still with it's events and users data
+saved and avoid losing the data. In addition I will use many try-catch to 
+catch any possible error that might be to decrease the chance that the server 
+will crash - so many errors will be caught and have the option to recover from
+the situation without losing all the data.

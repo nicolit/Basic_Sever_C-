@@ -21,22 +21,3 @@ In addition, the client should also maintain a log. For more details see ‘Clie
 In case that the client fails to connect the server, print the error to log (see ‘Error Handling’) and exit(1).
 
 The server should maintain a log file named emServer.log, which includes all the commands it received.
-
-FILES:
-Client.cpp
-Client.h
-CommandParser.cpp
-CommandParser.h
-emClient.cpp
-emServer.cpp
-Event.cpp
-Event.h
-Logger.cpp
-Logger.h
-Makefile
-README - this file
-Server.cpp
-Server.h
-
-REMARKS:
-This ex was hard and fun.
